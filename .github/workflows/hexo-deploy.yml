@@ -31,6 +31,10 @@ jobs:
         run: |
           npm install hexo-cli -g
           npm install
+          
+      - name: Install theme
+        run: |
+          git clone https://github.com/jerryc127/hexo-theme-butterfly.git themes/Butterfly
 
       - name: Clean and generate
         run: |
