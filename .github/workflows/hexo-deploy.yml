@@ -36,6 +36,16 @@ jobs:
         run: |
           git clone https://github.com/jerryc127/hexo-theme-butterfly.git themes/Butterfly
 
+      - name: Copy theme config
+        run: |
+          if [ -f "_config.butterfly.yml" ]; then
+            echo "Found _config.butterfly.yml, copying to theme directory..."
+            cp _config.butterfly.yml themes/Butterfly/_config.yml
+          else
+            echo "Warning: _config.butterfly.yml not found in root directory!"
+            exit 1
+          fi
+
       - name: Clean and generate
         run: |
           hexo clean
